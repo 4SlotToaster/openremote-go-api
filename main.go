@@ -13,7 +13,8 @@ func main() {
 	db := make(database, 0)
 	http.HandleFunc("/houses/populate", db.populate)
 	http.HandleFunc("/houses/get", db.find)
-	log.Fatal(http.ListenAndServe("localhost:5050", nil))
+	// An available port will be selected automatically
+	log.Fatal(http.ListenAndServe(":0", nil))
 }
 
 type database map[int]string
